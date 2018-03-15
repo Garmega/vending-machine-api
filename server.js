@@ -1,6 +1,6 @@
 var express = require('express'),
-  app = express(),
-  port = 3000;
+	app = express(),
+	port = 3000;
 
   // Reigstering routes.
 var routes = require('./api/routes.js'); 

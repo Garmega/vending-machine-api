@@ -1,0 +1,22 @@
+{
+  "name": "vending-machine-api",
+  "version": "1.0.0",
+  "description": "Welcome to your GitHub coding test!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Garmega@github.com/Garmega/vending-machine-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Garmega/vending-machine-api/issues"
+  },
+  "homepage": "https://github.com/Garmega/vending-machine-api#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

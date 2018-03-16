@@ -3,7 +3,7 @@ var express = require('express'),
 	port = 3000
 	bodyParser = require('body-parser');
 
-// Enable request body parsing;
+// Enable request body parsing.
 app.use(bodyParser.json())
 
 // Reigstering routes.

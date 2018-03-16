@@ -1,8 +1,9 @@
 module.exports = function(app) {
-	var controller = require('./controller.js');
-	// Test route
+	var vendingMachine = require('./controller.js');
 
-	app.route('/test')
-		.get(controller.test);
+	app.route('/products')
+		.get(vendingMachine.getAllProducts);
 
+	app.route('/products/:productId')
+		.get(vendingMachine.getProduct);
 };

@@ -1,24 +1,39 @@
 var inventory = require('./model.js');
 
+/*
+=======================
+Exported Endpoints
+=======================
+*/
+
+/*
+Attempts to get product info for given 'productId'
+	Returns 200 and JSONified information on the corresponding product if 'productId' is valid.
+	Returns 404 if 'productId' is invalid.
+*/
 exports.getProduct = function(req, res) {
 	// TODO: Implement to error handling.
 	var productId = req.params.productId
 
-	if (validProduct(productId)) {
+	if (inCatalog(productId)) {
 		res.json(inventory.products[productId]);
 	} else {
 		res.status(404).send('That productId does not correspond to a product.');
 	}
 };
 
+/*
+Gets all the product catalog.
+	Returns 200 and JSONified information on all catalog products.
+*/
 exports.getAllProducts = function(req, res) {
 	res.json(inventory.products);
 };
 
 /*
 Checks if the given 'productId' is in stock.
-Returns 200 if product is in stock.
-Returns 202 if product is NOT in stock.
+	Returns 200 if product is in stock.
+	Returns 202 if product is NOT in stock.
 */
 exports.inStock = function(req, res) {
 	var productId = req.params.productId;
@@ -30,7 +45,13 @@ exports.inStock = function(req, res) {
 	}
 }
 
-var validProduct = function(productId) {
+/*
+=======================
+Internal Functions
+=======================
+*/
+
+var inCatalog = function(productId) {
 	return inventory.products[productId] != undefined;
 };
 
@@ -39,9 +60,5 @@ Checks if the given 'productId' is in stock.
 If stock quantity is 0 or undefined, returns false. 
 */
 var inStock = function(productId) {
-	if (inventory.stock[productId] != undefined) {
-		return inventory.stock[productId] != 0;
-	}
-
-	return false;
+	return inventory.stock[productId] != undefined ? inventory.stock[productId] != 0 : false;
 };

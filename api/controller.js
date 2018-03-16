@@ -16,7 +16,8 @@ exports.getProduct = function(req, res) {
 	var productId = req.params.productId
 
 	if (inCatalog(productId)) {
-		res.json(inventory.products[productId]);
+		var product = vendingMachine.products[productId];
+		res.send(`A ${product.name} costs ${product.price}`);
 	} else {
 		res.status(404).send('That productId does not correspond to a product.');
 	}

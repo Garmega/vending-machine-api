@@ -15,22 +15,22 @@ module.exports = {
 	products: {
 		1: {
 			name: 'Coke',
-			price: 2.49
+			price: 2.50
 		},
 
 		2: {
 			name: 'Sprite',
-			price: 2.49
+			price: 2.50
 		},
 
 		3: {
 			name: 'Dr. Pepper',
-			price: 2.99
+			price: 3.00
 		},
 
 		4: {
 			name: 'Fanta',
-			price: 2.99
+			price: 3.00
 		}
 	}
 };

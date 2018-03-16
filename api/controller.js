@@ -1,4 +1,4 @@
-var inventory = require('./model.js');
+var vendingMachine = require('./model.js');
 
 /*
 =======================
@@ -25,10 +25,10 @@ exports.getProduct = function(req, res) {
 
 /*
 Gets all the product catalog.
-	Returns 200 and JSONified information on all catalog products.
+	Returns 200 and JSONified information on all products in catalog.
 */
 exports.getAllProducts = function(req, res) {
-	res.json(inventory.products);
+	res.json(vendingMachine.products);
 };
 
 /*
@@ -52,14 +52,14 @@ Internal Functions
 =======================
 */
 
-var inCatalog = function(productId) {
-	return inventory.products[productId] != undefined;
+function inCatalog(productId) {
+	return vendingMachine.products[productId] != undefined;
 };
 
 /*
 Checks if the given 'productId' is in stock.
 If stock quantity is 0 or undefined, returns false. 
 */
-var inStock = function(productId) {
-	return inventory.stock[productId] != undefined ? inventory.stock[productId] != 0 : false;
+function inStock(productId) {
+	return vendingMachine.stock[productId] != undefined ? vendingMachine.stock[productId] > 0 : false;
 };

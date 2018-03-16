@@ -9,4 +9,7 @@ module.exports = function(app) {
 
 	app.route('/inventory/:productId')
 		.get(vendingMachine.inStock);
+
+	app.route('/purchase')
+		.post(vendingMachine.purchaseProduct);
 };

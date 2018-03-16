@@ -1,10 +1,14 @@
 // Data model implementation
 
 module.exports = {
+	inUse: false,
+
+	cashOnHand: 10.00,
+
 	stock: {
 		1 : 10,
 		2 : 5,
-		3 : 5,
+		3 : 1,
 		4 : 0
 	},
 

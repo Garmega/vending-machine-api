@@ -15,6 +15,21 @@ exports.getAllProducts = function(req, res) {
 	res.json(inventory.products);
 };
 
+/*
+Checks if the given 'productId' is in stock.
+Returns 200 if product is in stock.
+Returns 202 if product is NOT in stock.
+*/
+exports.inStock = function(req, res) {
+	var productId = req.params.productId;
+
+	if (inStock(productId)) {
+		res.send('Product is in stock');
+	} else {
+		res.status(202).send('Product is NOT in stock');
+	}
+}
+
 var validProduct = function(productId) {
 	return inventory.products[productId] != undefined;
 };
@@ -23,6 +38,10 @@ var validProduct = function(productId) {
 Checks if the given 'productId' is in stock.
 If stock quantity is 0 or undefined, returns false. 
 */
-var isAvailable = function(productId) {
-	return inventory.stock[productId] == 0;
+var inStock = function(productId) {
+	if (inventory.stock[productId] != undefined) {
+		return inventory.stock[productId] != 0;
+	}
+
+	return false;
 };

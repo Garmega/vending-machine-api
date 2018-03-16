@@ -6,4 +6,7 @@ module.exports = function(app) {
 
 	app.route('/products/:productId')
 		.get(vendingMachine.getProduct);
+
+	app.route('/inventory/:productId')
+		.get(vendingMachine.inStock);
 };

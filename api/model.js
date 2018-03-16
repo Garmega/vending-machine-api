@@ -1,7 +1,7 @@
 // Data model implementation
 
 module.exports = {
-	inventory: {
+	stock: {
 		1 : 10,
 		2 : 5,
 		3 : 5,
